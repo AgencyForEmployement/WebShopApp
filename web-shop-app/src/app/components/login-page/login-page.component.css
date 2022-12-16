@@ -1,0 +1,58 @@
+.first-image-cover {
+    background: url(../../../assets/payment.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+}
+
+h1 {
+    padding-top: 10%;
+    margin-left: 40%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+}
+
+.login-container {
+    margin-left: 15%;
+    width: 30%;
+    padding-top: 3%;
+
+}
+
+.example-card {
+    max-width: 400px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+mat-card-title {
+    margin-bottom: 1rem;
+    margin-left: 40%;
+}
+
+.mat-card-actions:not(.mat-card-actions-align-end) .mat-button:first-child,
+.mat-card-actions:not(.mat-card-actions-align-end) .mat-raised-button:first-child,
+.mat-card-actions:not(.mat-card-actions-align-end) .mat-stroked-button:first-child {
+    margin-left: 40%;
+    margin-right: 0;
+}
+
+.mat-button.mat-blue,
+.mat-icon-button.mat-blue,
+.mat-stroked-button.mat-blue {
+    /* background-color: rgb(183, 183, 242); */
+    background-color: rgb(35, 92, 206);
+    ;
+    color: white;
+}
+
+mat-form-field {
+    margin-bottom: 0.5rem;
+}
+
+.form-link {
+    margin-left: 13%;
+}

@@ -67,7 +67,8 @@
               "browserTarget": "web-shop-app:build:production"
             },
             "development": {
-              "browserTarget": "web-shop-app:build:development"
+              "browserTarget": "web-shop-app:build:development",
+              "port": 4201
             }
           },
           "defaultConfiguration": "development"
@@ -94,8 +95,22 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

@@ -1,0 +1,95 @@
+<div class="bg">
+    <div class="container">
+        <div style="height: 2rem;"></div>
+        <div class="login-container">
+            <mat-card class="example-card">
+                <mat-card-title>Registration</mat-card-title>
+                <mat-card-content>
+                    <form [formGroup]="registrationForm">
+                        <div class="row">
+                            <div class="col">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Name</mat-label>
+                                    <input matInput placeholder="" formControlName="name">
+                                </mat-form-field>
+                            </div>
+                            <div class="col">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Surname</mat-label>
+                                    <input matInput placeholder="" formControlName="surname">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Street</mat-label>
+                                    <input matInput placeholder="" formControlName="street">
+                                </mat-form-field>
+                            </div>
+                            <div class="col">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Number</mat-label>
+                                    <input matInput placeholder="" formControlName="number">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col"> <mat-form-field appearance="fill">
+                                    <mat-label>City</mat-label>
+                                    <input matInput placeholder="" formControlName="city">
+                                </mat-form-field></div>
+                            <div class="col"> <mat-form-field appearance="fill">
+                                    <mat-label>Country</mat-label>
+                                    <input matInput placeholder="" formControlName="country">
+                                </mat-form-field></div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Enter your email</mat-label>
+                                    <input matInput placeholder="pat@example.com" formControlName="email">
+                                    <mat-error *ngIf="registrationForm.invalid">{{getEmailErrorMessage()}}</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Telephone number</mat-label>
+                                    <input matInput placeholder="" formControlName="telephone">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Education</mat-label>
+                            <input matInput placeholder="" formControlName="education">
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Experience</mat-label>
+                            <input matInput placeholder="" formControlName="experience">
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Enter your password</mat-label>
+                            <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'"
+                                formControlName="password">
+                            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' :
+                                'visibility'}}</mat-icon>
+                            <mat-error *ngIf="registrationForm.invalid">You must enter your password</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Confirm your password</mat-label>
+                            <input matInput placeholder="Confirm password" [type]="hide ? 'password' : 'text'"
+                                formControlName="confirmPassword">
+                            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' :
+                                'visibility'}}</mat-icon>
+                            <mat-error *ngIf="registrationForm.invalid">You must enter confirm password</mat-error>
+                        </mat-form-field>
+                        <a class="form-link" href="">Already have an account? Login here.</a>
+                    </form>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button class="login-button" mat-button color="blue" type="button" (click)="registration()">Register</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
