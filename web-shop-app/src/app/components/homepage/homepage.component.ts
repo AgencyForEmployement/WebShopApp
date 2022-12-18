@@ -23,7 +23,7 @@ export class HomepageComponent implements OnInit {
   }
 
   order() {
-    
+    window.location.href = 'http://localhost:4200/';
   }
 
 }
