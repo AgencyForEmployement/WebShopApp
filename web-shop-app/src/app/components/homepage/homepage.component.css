@@ -1,0 +1,21 @@
+.card{
+    margin-top: 1%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.order{
+    background-color: #4775a0;
+    color: white;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.title {
+    margin-top: 1%;
+    margin-left: 2%;
+    margin-bottom: 3%;
+    font-size: 30px;
+    color: #3d7ebc;
+}
