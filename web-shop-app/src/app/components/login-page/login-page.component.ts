@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-login-page',
@@ -9,10 +10,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
   }
+
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required ]),
     password: new FormControl('', [Validators.required, Validators.min(3) ])
@@ -28,5 +30,14 @@ export class LoginPageComponent implements OnInit {
     return this.loginForm.controls['email'].hasError('email') ? 'Not a valid email' : '';
   }
 
-  readonly login = () => this.router.navigate(['homepage'])
+  readonly login = () => {
+    this.authenticationService.login({
+      "email" : this.loginForm.controls['email'].value , 
+      "password" : this.loginForm.controls['password'].value})
+      .subscribe( response => {
+        localStorage.setItem("token", response.accessToken)
+        this.router.navigate(['homepage'])
+      }
+    )
+  }
 }
