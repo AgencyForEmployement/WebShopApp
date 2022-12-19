@@ -22,8 +22,11 @@ export class HomepageComponent implements OnInit {
     )
   }
 
-  order() {
-    window.location.href = 'http://localhost:4200/';
+  order(service:string, price:number) {
+    document.cookie = 'price =' + price.toString()
+    document.cookie = 'description =' + service
+    window.open('http://localhost:4200/', "_blank");
+    
   }
 
 }

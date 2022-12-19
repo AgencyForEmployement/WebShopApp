@@ -10,7 +10,7 @@
         <mat-card-content>
             <p><i><b>Description:</b></i> {{service.description}}</p>
         <p style="margin-top: 1%;"><i><b>Price:</b></i> {{service.price}}</p>
-        <button mat-raised-button class="order"  (click)="order()" >Order</button>
+        <button mat-raised-button class="order"  (click)="order(service.description, service.price)" >Order</button>
         </mat-card-content>
     </mat-card> 
 </div>
