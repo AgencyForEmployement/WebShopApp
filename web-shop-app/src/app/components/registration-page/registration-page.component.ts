@@ -18,16 +18,16 @@ export class RegistrationPageComponent implements OnInit {
 
   registrationForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required ]),
-    name: new FormControl('', [Validators.email, Validators.required ]),
-    surname: new FormControl('', [Validators.email, Validators.required ]),
-    telephone: new FormControl('', [Validators.email, Validators.required ]),
+    name: new FormControl('', [ Validators.required ]),
+    surname: new FormControl('', [ Validators.required ]),
+    telephone: new FormControl('', [ Validators.required ]),
     password: new FormControl('', [Validators.required, Validators.min(3) ]),
     confirmPassword: new FormControl('', [Validators.required, Validators.min(3) ]),
     education: new FormControl('', [Validators.required, Validators.min(3) ]),
     experience: new FormControl('', [Validators.required, Validators.min(3) ]),
     street: new FormControl('', [Validators.required, Validators.min(3) ]),
-    number: new FormControl('', [Validators.required, Validators.min(3) ]),
-    city: new FormControl('', [Validators.required, Validators.min(3) ]),
+    number: new FormControl(null, [ ]),
+    city: new FormControl('', [ ]),
     country: new FormControl('', [Validators.required, Validators.min(3) ]),
   });
   hide = true;
@@ -49,7 +49,10 @@ export class RegistrationPageComponent implements OnInit {
   }
 
   readonly registration = () => {
-    this.authenticationService.register({
+    if(this.registrationForm.status === "INVALID"){
+      Swal.fire('Neuspesno!', 'Morate popuniti registracionu formu ispravnim podacima.', 'error');
+    }else{
+      this.authenticationService.register({
       "name" : this.registrationForm.controls['name'].value,
       "surname" : this.registrationForm.controls['surname'].value,
       "telephoneNumber" : this.registrationForm.controls['telephone'].value,
@@ -67,6 +70,12 @@ export class RegistrationPageComponent implements OnInit {
       .subscribe(
         response => {
           Swal.fire('Uspesno!', 'Uspesno ste se registrovali.', 'success');
-        })
+        }, 
+      err => {
+        Swal.fire('Neuspesno!', 'Registracija je neuspesna, nalog registrovan na ovaj email vec postoji. Pokusajte ponovo.', 'error');
+      }
+        )
   }
+    }
+    
 }

@@ -1,10 +1,10 @@
-.card{
+.card {
     margin-top: 1%;
     margin-left: 2%;
     margin-right: 2%;
 }
 
-.order{
+.order {
     background-color: #4775a0;
     color: white;
     margin-top: 1rem;
@@ -19,3 +19,29 @@
     font-size: 30px;
     color: #3d7ebc;
 }
+
+.card-wrapper {
+    height: auto;
+
+}
+
+button.right {
+    float: right;
+}
+
+.name-label {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+    color: #4775a0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+}
+
+.toolbar-style {
+    margin-top: 2rem;
+    width: 98%;
+    text-align-last: center;
+}
+
+

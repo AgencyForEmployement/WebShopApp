@@ -1,0 +1,36 @@
+<mat-card class="card">
+    <mat-card-title class="shopping-cart-title"> Shopping cart
+        <mat-icon>shopping_cart</mat-icon> </mat-card-title>
+    <mat-card-content>
+        <div *ngIf="showItems" class="shopping-items">
+            <div class="row shopping-items-position">
+                <div class="col"> SERVICE NAME</div>
+                <div class="col"> PRICE</div>
+                <div class="col"> </div>
+                 </div>
+                 <hr>
+            <div class="row " *ngFor="let item of shoppingChart"  >
+                <div class="col">
+                   <p> {{item.name}}</p>
+                </div>
+                <div class="col">
+                    {{item.price}}
+                </div>
+                <div class="col">
+                    <button type="button" mat-raised-button (click)="deleteItem(item.id)"> x
+                    </button>
+                </div>
+            </div>
+          <div class="row ">
+            <div class="col">
+                 <button  mat-raised-button type="button" class="order-btn"> Buy service</button>
+            </div>
+           
+          </div>
+        </div>
+        <div *ngIf="!showItems" >
+            <p class="shopping-note">You don't have items in your cart</p>
+        </div>
+    </mat-card-content>
+
+</mat-card>

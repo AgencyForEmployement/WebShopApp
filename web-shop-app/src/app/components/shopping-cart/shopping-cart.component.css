@@ -1,0 +1,39 @@
+.card{
+margin-top: 1%;
+width: 90%;
+}
+
+.shopping-note {
+    color:  #3d7ebc;
+    margin-top: 2rem;
+    font-weight: bold;
+    font-size: larger;
+     margin-left: 20%;
+}
+
+.shopping-items-position{
+   margin-top: 2rem;
+   color: #3d7ebc;
+}
+
+.shopping-items{
+    margin-top: 2rem;
+    margin-left: 10%;
+    margin-right: 10%;
+ }
+
+ .shopping-cart-title{
+    margin-left: 10%;
+ }
+
+ .order-btn{
+    background-color: #4775a0;
+    color: white;
+    font-size: large;
+    float: right;
+    width: max-content;
+    float: right;
+    margin-right: 20%;
+    margin-top: 1rem;
+ }
+

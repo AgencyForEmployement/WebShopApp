@@ -14,12 +14,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { TransactionsComponent } from './components/transactions/transactions.component';
+import { MatExpansionModule} from '@angular/material/expansion';
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     RegistrationPageComponent,
-    HomepageComponent
+    HomepageComponent,
+    ShoppingCartComponent,
+    TransactionsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +38,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatIconModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatExpansionModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent],
