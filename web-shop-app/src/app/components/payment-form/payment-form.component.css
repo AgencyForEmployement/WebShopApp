@@ -8,8 +8,11 @@
     /* color:cornflowerblue; */
     color: rgb(28, 27, 27);
     margin-left: 50%;
+    margin-top: 3%;
 }
-
+.card-header{
+    margin-bottom: 4%;
+}
 .image-background{
     height:100%;
     width: 100%;
