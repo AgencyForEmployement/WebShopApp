@@ -12,12 +12,12 @@
     <div class="col">
         <div class="card-wrapper">
             <mat-card class="card" *ngFor="let service of services">
-                <mat-card-header>
-                    <mat-card-title>
+                <mat-card-header >
+                    <mat-card-title >
                         {{service.name}}
                     </mat-card-title>
                 </mat-card-header>
-                <mat-card-content>
+                <mat-card-content class="content-card">
                     <p><i><b>Description:</b></i> {{service.description}}</p>
                     <p style="margin-top: 1%;"><i><b>Price:</b></i> {{service.price}} EUR</p>
                     <button mat-raised-button class="order"

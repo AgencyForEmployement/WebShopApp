@@ -1,6 +1,6 @@
 .card {
     margin-top: 1%;
-    margin-left: 2%;
+    margin-left: 10%;
     margin-right: 2%;
 }
 
@@ -10,12 +10,14 @@
     margin-top: 1rem;
     margin-right: 1rem;
     margin-bottom: 1rem;
+    margin-left: 80%;
+
 }
 
 .title {
     margin-top: 1%;
-    margin-left: 2%;
-    margin-bottom: 3%;
+    margin-left: 7%;
+    margin-bottom: 1%;
     font-size: 30px;
     color: #3d7ebc;
 }
@@ -44,4 +46,6 @@ button.right {
     text-align-last: center;
 }
 
-
+.content-card{
+    margin-left: 2%;
+}

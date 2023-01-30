@@ -34,5 +34,14 @@ width: 90%;
     width: max-content;
     float: right;
     margin-right: 20%;
-    margin-top: 1rem;
  }
+
+ .total-style{
+   font-size: large;
+  font-weight: bold;
+ }
+ .icon-display {
+   transform: scale(0.8);
+  
+   vertical-align: middle;
+}

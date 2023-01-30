@@ -13,7 +13,7 @@
                  <hr>
             <div class="row " *ngFor="let t of transactions"  >
                 <div class="col">
-                   <p> {{t.merchantOrderTimestamp}}</p>
+                   <p> {{t.merchantOrderTimestamp | date}}</p>
                 </div>
                 <div class="col">
                     {{t.amount}} EUR
