@@ -19,6 +19,7 @@ import { TransactionsComponent } from './components/transactions/transactions.co
 import { MatExpansionModule} from '@angular/material/expansion';
 import { CommonModule } from '@angular/common';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { PaymentFormComponent } from './components/payment-form/payment-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/mater
     RegistrationPageComponent,
     HomepageComponent,
     ShoppingCartComponent,
-    TransactionsComponent
+    TransactionsComponent,
+    PaymentFormComponent
   ],
   imports: [
     BrowserModule,

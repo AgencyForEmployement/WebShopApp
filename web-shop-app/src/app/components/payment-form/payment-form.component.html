@@ -1,0 +1,98 @@
+<div class="container">
+    <mat-card>
+        <div class="row">
+            <div class="col">
+                <div>
+                    <img src="../../../assets/payment.jpg" class="image-background">
+                </div>
+            </div>
+            <div class="col-md-5">
+                 <mat-card class="payment-card">
+                    <mat-card-header>
+                        <mat-card-title class="card-title">
+                            Bank payment
+                        </mat-card-title>
+                    </mat-card-header>
+                    <form [formGroup]="paymentForm">
+                        <mat-card-content class="content-card">
+                            <!-- <div class="row">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Name</mat-label>
+                                    <input type="Ime" formControlName="name" matInput placeholder="Ex. Mark">
+                                </mat-form-field>
+                            </div>
+                            <div class="row">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Surname</mat-label>
+                                    <input type="surname" formControlName="surname" matInput placeholder="Twan">
+                                </mat-form-field>
+                            </div>
+                            <div class="row">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Address</mat-label>
+                                    <input type="address" formControlName="address" matInput placeholder="Sant Marco 5, Venice">
+                                </mat-form-field>
+                            </div> -->
+                            <div class="row">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Card holder name</mat-label>
+                                    <input formControlName="cardHolderName" matInput>
+                                </mat-form-field>
+                                <div *ngIf="paymentForm.invalid && (paymentForm.dirty || paymentForm.touched)" class="error-message" >
+                                    <div *ngIf="paymentForm.controls['cardHolderName'].errors?.['required']">
+                                    Card holder name can't be empty!
+                                  </div>
+                                  <div *ngIf="paymentForm.controls['cardHolderName'].errors?.['pattern']">
+                                    Wrong format! Required format is from one to three words maximum.
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>PAN Number</mat-label>
+                                    <input formControlName="pan" matInput placeholder="1111 1111 1111 1111">
+                                </mat-form-field>
+                                <div *ngIf="paymentForm.invalid && (paymentForm.dirty || paymentForm.touched)" class="error-message" >
+                                    <div *ngIf="paymentForm.controls['pan'].errors?.['required']">
+                                    PAN is required!
+                                  </div>
+                                  <div *ngIf="paymentForm.controls['pan'].errors?.['pattern']">
+                                    Wrong format! You have to enter CORRECT pan number!
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Security code</mat-label>
+                                    <input formControlName="securityCode" matInput>
+                                </mat-form-field>
+                                <div *ngIf="paymentForm.invalid && (paymentForm.dirty || paymentForm.touched)" class="error-message" >
+                                    <div *ngIf="paymentForm.controls['securityCode'].errors?.['required']">
+                                    Security code is required!
+                                  </div>
+                                  <div *ngIf="paymentForm.controls['cardHolderName'].errors?.['pattern']">
+                                    Wrong format! Only number with three or four digits allowed!
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Date expiration</mat-label>
+                                    <input formControlName="dateExpiration" matInput placeholder="02/25">
+                                </mat-form-field>
+                                <div *ngIf="paymentForm.invalid && (paymentForm.dirty || paymentForm.touched)" class="error-message" >
+                                    <div *ngIf="paymentForm.controls['dateExpiration'].errors?.['required']">
+                                    Date expiration is required!
+                                  </div>
+                                  <div *ngIf="paymentForm.controls['dateExpiration'].errors?.['pattern']">
+                                    Wrong format! Required format is only numbers with '/'' between them (ex: 01/25)
+                                  </div>
+                                </div>
+                            </div>
+                            <button mat-raised-button class="pay-btn">Payment</button>
+                        </mat-card-content>
+                    </form>
+                </mat-card></div>
+        </div>
+    </mat-card>
+</div>

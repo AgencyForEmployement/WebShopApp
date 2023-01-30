@@ -1,0 +1,32 @@
+.container{
+    margin-top:7%;
+}
+
+.card-title{
+    width: 100%;
+    font-size: xx-large;
+    /* color:cornflowerblue; */
+    color: rgb(28, 27, 27);
+    margin-left: 50%;
+}
+
+.image-background{
+    height:100%;
+    width: 100%;
+}
+.payment-card{
+    background-color: rgb(250, 235, 208);
+    height: 100%;
+}
+.suffix-style{
+    font-size: larger;
+    font-weight: bold;
+}
+.pay-btn{
+    margin-left: 80%;
+}
+.error-message{
+    color: red;
+    margin-top: -2%;
+    margin-bottom: 2%;
+}
