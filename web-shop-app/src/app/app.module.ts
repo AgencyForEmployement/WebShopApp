@@ -18,6 +18,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { TransactionsComponent } from './components/transactions/transactions.component';
 import { MatExpansionModule} from '@angular/material/expansion';
 import { CommonModule } from '@angular/common';
+import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,9 +41,10 @@ import { CommonModule } from '@angular/common';
     BrowserAnimationsModule,
     HttpClientModule,
     MatExpansionModule,
-    CommonModule
+    CommonModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [{ provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 3000 } }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

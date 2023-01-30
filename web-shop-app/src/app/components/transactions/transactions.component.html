@@ -1,1 +1,33 @@
-<p>transactions works!</p>
+
+<mat-card class="card">
+    <mat-card-title class="shopping-cart-title"> Transactions
+        <mat-icon class="euro-icon">euro_symbol</mat-icon>
+    </mat-card-title>
+    <mat-card-content>
+        <div *ngIf="showTransactions" class="shopping-items">
+            <div class="row shopping-items-position">
+                <div class="col"> DATE</div>
+                <div class="col"> AMOUNT</div>
+                <div class="col"> SERVICES </div>
+                 </div>
+                 <hr>
+            <div class="row " *ngFor="let t of transactions"  >
+                <div class="col">
+                   <p> {{t.merchantOrderTimestamp}}</p>
+                </div>
+                <div class="col">
+                    {{t.amount}} EUR
+                </div>
+                <div class="col">
+                   <div class="row" *ngFor="let s of t.services">
+                    {{s.name}}
+                   </div>
+                </div><hr>
+            </div>
+        </div>
+        
+        <div *ngIf="!showTransactions" >
+            <p class="shopping-note">You don't have transactions for now</p>
+        </div>
+    </mat-card-content>
+</mat-card>
