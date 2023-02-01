@@ -1,0 +1,69 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-5">
+            <br><br><br><br><br><br><br><br><br><br><br>
+  
+        <div class="d-grid gap-2"><h2 style="text-align:center">Purchase info</h2></div>
+      <br><br>
+        <div class="row">
+            <div class="d-grid gap-2"><h2 style="text-align:center">Price:</h2></div>
+        </div>
+      <div class="row">
+        <div class="d-grid gap-2"><h3 style="text-align:center; color: blue" >{{order.price}} EUR</h3></div>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="d-grid gap-2"><h2 style="text-align:center">Item:</h2></div>
+    </div>
+    <div class="row">
+        <div class="d-grid gap-2"><h3 style="text-align:center; color: blue;">{{order.description}}</h3></div>
+    </div>
+        </div>
+        <div class="col-sm-7">
+            <br><br><br><br><br><br><br><br>
+  
+        <div class="d-grid gap-2"><h2 style="text-align:center">Pick a payment method</h2></div>
+      <br><br>
+        <div class="row">
+          <div class="col-sm-4">
+          </div>
+          <div class="col-sm-4">
+            <div class="d-grid gap-2"><button *ngIf="options.card" class="btn btn-outline-danger btn-lg" id="card" type="button">Card payment</button></div>
+        </div>
+        <div class="col-sm-4">
+        </div>
+      </div>
+      <br><br>
+      <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+          <div class="d-grid gap-2"><button *ngIf="options.qr" class="btn btn-outline-secondary btn-lg" id="qr" type="button">QR code payment</button></div>
+      </div>
+      <div class="col-sm-4">
+      </div>
+    </div>
+    <br><br>
+    <div class="row">
+      <div class="col-sm-4">
+      </div>
+      <div class="col-sm-4">
+        <div class="d-grid gap-2"><button *ngIf="options.paypal" (click)="payWithPayPal()" class="btn btn-outline-primary btn-lg" id="paypal" type="button">PayPal payment</button></div>
+    </div>
+    <div class="col-sm-4">
+    </div>
+  </div>
+  <br><br>
+  <div class="row">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+      <div class="d-grid gap-2"><button *ngIf="options.bitcoin" (click)="bitcoinPayment()" class="btn btn-outline-warning btn-lg" id="bitcoin" type="button">Bitcoin payment</button></div>
+  </div>
+  <div class="col-sm-4">
+  </div>
+  </div>
+  <br><br>
+  </div>
+    </div>
+    </div>

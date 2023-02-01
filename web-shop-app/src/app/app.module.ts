@@ -20,6 +20,9 @@ import { MatExpansionModule} from '@angular/material/expansion';
 import { CommonModule } from '@angular/common';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { PaymentFormComponent } from './components/payment-form/payment-form.component';
+import { OptionsComponent } from './components/options/options.component';
+import { PaypalFailComponent } from './components/paypal-fail/paypal-fail.component';
+import { PaypalSuccessComponent } from './components/paypal-success/paypal-success.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +31,10 @@ import { PaymentFormComponent } from './components/payment-form/payment-form.com
     HomepageComponent,
     ShoppingCartComponent,
     TransactionsComponent,
-    PaymentFormComponent
+    PaymentFormComponent,
+    OptionsComponent,
+    PaypalFailComponent,
+    PaypalSuccessComponent
   ],
   imports: [
     BrowserModule,
