@@ -14,6 +14,7 @@ export class OptionsComponent implements OnInit {
   constructor(private cookieService: CookieService) { }
 
   order = {price: "11", description: "Desc", merchantOrderId: ""}
+  orderCard = {price: "11", description: "Desc", merchantOrderId: "", pib: "", merchantOrderTimestamp:""}
   data = {
     merchantOrderId: "",
     title: "Crypto payment", 
@@ -34,6 +35,13 @@ options = {card: false, qr: false, paypal: false, bitcoin: false}
       this.order.price = this.cookieService.get('price')
       this.order.description = this.cookieService.get('description')
       this.order.merchantOrderId = this.cookieService.get('merchantOrderId')
+      
+      this.orderCard.price = this.cookieService.get('price')
+      this.orderCard.description = this.cookieService.get('description')
+      this.orderCard.merchantOrderId = this.cookieService.get('merchantOrderId')
+      this.orderCard.pib = this.cookieService.get('pib')
+      this.orderCard.merchantOrderId = this.cookieService.get('merchantOrderId')
+      this.orderCard.merchantOrderTimestamp = this.cookieService.get('merchantOrderTimestamp')
       axios.get(environment.apiUrl + "/authentication/getPayments")
       .then(response => {
         this.options.card = response.data.card
@@ -89,6 +97,25 @@ options = {card: false, qr: false, paypal: false, bitcoin: false}
     .catch(e => {
      console.log(e.response)
     })
+  }
+  payWithCreditCard(){
+    if (this.orderCard.price != "" && this.orderCard.description != ""){
+      axios.post(environment.PSPAPI + 'bank', this.orderCard)
+      .then(response => {
+        document.cookie = 'paymentId =' + response.data.paymentId.toString();
+        document.cookie = 'description =' + this.orderCard.description.toString();
+        document.cookie = 'amount =' + response.data.amount.toString();
+        document.cookie = 'successUrl =' + response.data.successUrl.toString();
+        document.cookie = 'failedUrl =' + response.data.failedUrl.toString();
+        document.cookie = 'errorUrl =' + response.data.errorUrl.toString();
+        alert(response.data.paymentURL)
+        window.location.href = response.data.paymentURL;
+      })
+      .catch(e => {
+       console.log(e.response.data)
+      })
+    } else 
+      alert("Payment not possible, you were not redirected here.")
   }
 
   getPayments() {
