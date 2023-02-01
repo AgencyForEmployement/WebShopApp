@@ -54,13 +54,19 @@ export class ShoppingCartComponent implements OnInit {
   createOrder = () => {
     this.transactionService.createTransaction().subscribe(res => {
       document.cookie = 'price =' + res.amount.toString()
-      document.cookie = 'description = PAYMENT',
-      document.cookie = 'pib = ' + environment.PIB,
+      console.log(res.services);
+      let description = ""
+      for (let i = 0; i < res.services.length; i++){
+        description = description + res.services[i].name  + ", "
+      }
+      description = description.substring(0, description.length-2);
+      document.cookie = 'description = ' + description,
+      document.cookie = 'PIB = ' + environment.PIB,
       document.cookie = 'merchantOrderId = ' + res.merchantOrderId.toString(),
       document.cookie = 'merchantOrderTimestamp = ' + res.merchantOrderTimestamp.toString(),
       console.log(document.cookie)
       this.showItems = false;
-      window.open('http://localhost:4200/', "_blank"); //psp front za metodu placanja
+      window.open('http://localhost:4201/options', "_blank"); //psp front za metodu placanja
       this.transactionService.getAllTransactions().subscribe(res => this.transactionList = res)
     },
       err => {
