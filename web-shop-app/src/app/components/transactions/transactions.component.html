@@ -9,11 +9,12 @@
                 <div class="col"> DATE</div>
                 <div class="col"> AMOUNT</div>
                 <div class="col"> SERVICES </div>
+                <div class="col"> STATUS </div>
                  </div>
                  <hr>
             <div class="row " *ngFor="let t of transactions"  >
                 <div class="col">
-                   <p> {{t.merchantOrderTimestamp | date}}</p>
+                   <p> {{t.merchantOrderTimestamp | date :'short'}}</p>
                 </div>
                 <div class="col">
                     {{t.amount}} EUR
@@ -22,7 +23,11 @@
                    <div class="row" *ngFor="let s of t.services">
                     {{s.name}}
                    </div>
-                </div><hr>
+                </div>
+                <div class="col">
+                    {{t.status}} 
+                </div>
+                <hr>
             </div>
         </div>
         
