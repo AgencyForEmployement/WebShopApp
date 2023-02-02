@@ -68,7 +68,7 @@ export class ShoppingCartComponent implements OnInit {
       this.showItems = false;
       document.cookie = 'client=' + localStorage.getItem("client")
       window.open('http://localhost:4201/options', "_blank"); //psp front za metodu placanja
-      this.transactionService.getAllTransactions().subscribe(res => this.transactionList = res)
+      //this.transactionService.getAllTransactions().subscribe(res => this.transactionList = res)
     },
       err => {
         this.errorAlert("Something went wrong... You can't order right now, try again later")

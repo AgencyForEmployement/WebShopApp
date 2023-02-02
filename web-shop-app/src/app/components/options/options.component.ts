@@ -108,7 +108,6 @@ options = {card: false, qr: false, paypal: false, bitcoin: false}
         document.cookie = 'successUrl =' + response.data.successUrl.toString();
         document.cookie = 'failedUrl =' + response.data.failedUrl.toString();
         document.cookie = 'errorUrl =' + response.data.errorUrl.toString();
-        alert(response.data.paymentURL)
         window.location.href = response.data.paymentURL;
       })
       .catch(e => {

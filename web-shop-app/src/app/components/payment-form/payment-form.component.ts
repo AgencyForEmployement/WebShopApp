@@ -42,7 +42,7 @@ export class PaymentFormComponent implements OnInit {
       }
     ).subscribe(
       response => {
-        alert(response)
+        alert(response.data)
         window.location.href = response;
       }
     );
