@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login-page',
@@ -10,7 +11,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(private router:Router, private authenticationService: AuthenticationService) { }
+  constructor(private router:Router, private authenticationService: AuthenticationService, private userService: UserService) { }
 
   ngOnInit(): void {
   }
@@ -31,6 +32,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   readonly login = () => {
+    var userEmail = this.loginForm.controls['email'].value;
     this.authenticationService.login({
       "email" : this.loginForm.controls['email'].value , 
       "password" : this.loginForm.controls['password'].value})
@@ -39,5 +41,9 @@ export class LoginPageComponent implements OnInit {
         this.router.navigate(['homepage'])
       }
     )
+    this.userService.getUserByEmail(userEmail).subscribe( response => {
+      console.log(response);
+      localStorage.setItem("client", response.name + " " + response.surname)     
+    })
   }
 }

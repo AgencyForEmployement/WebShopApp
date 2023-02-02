@@ -66,6 +66,7 @@ export class ShoppingCartComponent implements OnInit {
       document.cookie = 'merchantOrderTimestamp = ' + res.merchantOrderTimestamp.toString(),
       console.log(document.cookie)
       this.showItems = false;
+      document.cookie = 'client=' + localStorage.getItem("client")
       window.open('http://localhost:4201/options', "_blank"); //psp front za metodu placanja
       this.transactionService.getAllTransactions().subscribe(res => this.transactionList = res)
     },
