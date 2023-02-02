@@ -19,10 +19,11 @@ showTransactions: boolean= false;
 
   getAllTransactions(){
     this.transactionService.getAllTransactions().subscribe(res => {
+      console.log(res);
       this.transactions = res;
-      if(this.transactions){
+      if(this.transactions)
         this.showTransactions = true;
-      } else this.showTransactions = false;
+      else this.showTransactions = false;
     })
   }
 }
