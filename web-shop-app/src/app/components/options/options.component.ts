@@ -3,6 +3,7 @@ import axios from 'axios';
 import { environment } from 'src/app/environments/environment';
 import { CookieService } from 'ngx-cookie-service';
 import { throwToolbarMixedModesError } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-options',
@@ -11,7 +12,7 @@ import { throwToolbarMixedModesError } from '@angular/material';
 })
 export class OptionsComponent implements OnInit {
 
-  constructor(private cookieService: CookieService) { }
+  constructor(private cookieService: CookieService, private router: Router) { }
 
   order = {price: "11", description: "Desc", merchantOrderId: ""}
   orderCard = {price: "11", description: "Desc", merchantOrderId: "", pib: "", merchantOrderTimestamp:""}
