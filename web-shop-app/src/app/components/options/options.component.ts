@@ -28,7 +28,7 @@ export class OptionsComponent implements OnInit {
     description: "Premium Package"//this.order.description
 }
 options = {card: false, qr: false, paypal: false, bitcoin: false}
-
+client = ""
   
 
   ngOnInit(): void {
@@ -42,6 +42,7 @@ options = {card: false, qr: false, paypal: false, bitcoin: false}
       this.orderCard.pib = this.cookieService.get('pib')
       this.orderCard.merchantOrderId = this.cookieService.get('merchantOrderId')
       this.orderCard.merchantOrderTimestamp = this.cookieService.get('merchantOrderTimestamp')
+      this.client = this.cookieService.get('client')
       axios.get(environment.apiUrl + "/authentication/getPayments")
       .then(response => {
         this.options.card = response.data.card
@@ -116,6 +117,29 @@ options = {card: false, qr: false, paypal: false, bitcoin: false}
       })
     } else 
       alert("Payment not possible, you were not redirected here.")
+  }
+  payWithQRCode() {
+    console.log(this.orderCard);
+    if (this.orderCard.price != "" && this.orderCard.description != ""){
+      console.log(this.orderCard);
+      axios.post(environment.PSPAPI + 'bank', this.orderCard)
+      .then(response => {
+        document.cookie = 'paymentId =' + response.data.paymentId.toString();
+        document.cookie = 'description =' + this.orderCard.description.toString();
+        document.cookie = 'amount =' + response.data.amount.toString();
+        document.cookie = 'successUrl =' + response.data.successUrl.toString();
+        document.cookie = 'failedUrl =' + response.data.failedUrl.toString();
+        document.cookie = 'errorUrl =' + response.data.errorUrl.toString();
+        document.cookie = 'client=' + this.client;
+        console.log(response);
+        console.log(document.cookie)
+        window.open('http://localhost:4203/qr-code', "_blank");
+      })
+      .catch(e => {
+       console.log(e)
+      })
+    } else 
+      alert("Payment not possible, you were not redirected here.")    
   }
 
   getPayments() {

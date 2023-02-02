@@ -41,7 +41,7 @@
         <div class="col-sm-4">
         </div>
         <div class="col-sm-4">
-          <div class="d-grid gap-2"><button *ngIf="options.qr" class="btn btn-outline-secondary btn-lg" id="qr" type="button">QR code payment</button></div>
+          <div class="d-grid gap-2"><button *ngIf="options.qr" (click)="payWithQRCode()" class="btn btn-outline-secondary btn-lg" id="qr" type="button">QR code payment</button></div>
       </div>
       <div class="col-sm-4">
       </div>
