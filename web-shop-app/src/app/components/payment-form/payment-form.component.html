@@ -46,7 +46,7 @@
                             <div class="row">
                                 <mat-form-field class="example-full-width" appearance="fill">
                                     <mat-label>Security code</mat-label>
-                                    <input formControlName="securityCode" matInput>
+                                    <input type="password" formControlName="securityCode" matInput>
                                 </mat-form-field>
                                 <div *ngIf="paymentForm.invalid && (paymentForm.dirty || paymentForm.touched)" class="error-message" >
                                     <div *ngIf="paymentForm.controls['securityCode'].errors?.['required']">

@@ -42,8 +42,11 @@ export class PaymentFormComponent implements OnInit {
       }
     ).subscribe(
       response => {
-        alert(response.data)
-        window.location.href = response;
+        console.log(response)
+        window.location.href = response.failedUrl;
+      },
+      error => {
+        window.location.href = error.error.text;
       }
     );
   }

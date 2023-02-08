@@ -7,5 +7,6 @@ export class Transaction {
     public merchantOrderTimestamp: any;
     public services: ServiceItem[] = [];
     public status: any;
+    public paymentMethod: string =""
 
 } 
